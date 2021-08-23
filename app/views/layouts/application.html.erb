@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Techpitgram3</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%# viewportでスクリーンの拡大縮小が設定できる %>
+    <%# initial-scaleはズーム倍率の初期値を設定 %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <%# stylesheet_pack_tag を使うことでWebpackで %>
+    <%# .cssや.scssファイルのスタイルシートにも対応 %>
+    <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <div id="wrapper">
+    <%# _navbar.html.erbの部分テンプレートをrenderする %>
+    <%= render 'partial/navbar' if current_user %>
+
+    <%# フラッシュメッセージを追加%>
+    <% if flash[:notice] %>
+      <div class="alert alert-info">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+    <% if flash[:alert] %>
+      <div class="alert alert-danger">
+        <%= flash[:alert] %>
+      </div>
+    <% end %>
+    <%# containerクラスは、bootstrapによりコンテンツを中央に配置して水平方向に埋め込む手段を提供する %>
+    <div class="container">
+      <%= yield %>
+    </div>
+    <%= render "partial/footer" %>
+  </div>
+  </body>
+</html>

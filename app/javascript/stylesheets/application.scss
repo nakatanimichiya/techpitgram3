@@ -1,0 +1,17 @@
+@import "~bootstrap/scss/bootstrap";
+
+// navbarのスタイルを作成
+@import "layouts/navbar";
+
+// deviseのサインアップ画面に該当するビュー作成
+@import "common";
+@import "users/devise";
+
+// プロフィールページのスタイルを作成
+@import "users/show";
+
+// プロフィール編集ページのスタイルを作成
+@import "users/edit";
+
+//投稿一覧ページのスタイルを作成
+@import "posts";
